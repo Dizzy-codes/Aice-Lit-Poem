@@ -1,6 +1,6 @@
 # Aice-Lit-Poem-Program
 ### About
-This program will help to quiz yourself for the upcoming Aice-Lit exam!
+This program will help you quiz yourself for the upcoming Aice-Lit exam!
 
 ### Features
 This program currently has the following features: you can randomize lines of all the poems randomly or of your choosing, and randomize the poem title of all the poems or of your choosing.
