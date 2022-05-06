@@ -1,0 +1,129 @@
+﻿import random
+
+#Stores all the poems
+POEMS = ["Song.txt", "If Thou Must Love Me.txt", "The Wedding.txt", "When We Two Parted.txt", "The Pride of Lions.txt", "Sonnet 19.txt", "Written Near a Port on a Dark Evening.txt", "The Mountain.txt", "The Cry of Children.txt", "Darkness.txt", "Shirt.txt", "The Song of the Shirt.txt", "First March.txt", "A Wife in London.txt", "Sleep.txt", "Waterfall.txt", "Farewell, Ungrateful Traitor.txt", "Futility.txt", "Distant Fields (ANZAC Parade).txt", "The Death-Bed.txt", "The Pains of Sleep.txt", "When You are Old.txt", "A Song of Faith Forsworn.txt", "A Complaint.txt", "On This Day I Complete My Thirty-Sixth Year.txt", "Years had been from Home.txt", "On the Day of Judgement.txt", "Homecoming.txt" ]
+AUTHORS = ["Lady Mary Wroth", "Elizabeth Barrett Browning", "Moniza Alvi", "Lord Byron", "Joanna Preston", "William Shakespeare", "Charlotte Smith", "Elizabeth Bishop", "Elizabeth Barrett Browning", "Lord Byron", "Robert Pinsky", "Thomas Hood", "Ivor Gurney", "Thomas Hardy", "Kenneth Slessor", "Lauris Edmond", "John Dryden", "Wilfred Owen", "Rhian Gallagher", "Siegfried Sassoon", "Samuel Taylor Coleridge", "W. B. Yeats", "John Warren", "William Wordsworth", "Lord Byron", "Emily Dickinson", "Jonathan Swift", "Lenrie Peters"]
+
+def poem():
+    try:
+        #Asks for the user's input
+        user_input = input("Enter the following mode you wish to use, by entering the corresponding number: 1:Random Poem Line Game, 2:Selected Poem Line Game, 3:Random Guess the Author, 4:Selected Guess the Author:  ")
+        print(" ")
+
+        if user_input == '1':
+            input("I will display a random line from any poem, try to enter the correct poem name! Press enter when you're ready, close the program when you're done.")
+            print(" ")
+
+            while True:
+                #Selects a random poem from the LIST
+                random_poem = random.choice(POEMS)
+                random_poem_text = open(random_poem, encoding="utf8").read().splitlines()
+
+                #Selects a random line from the poem
+                random_line = random.choice(random_poem_text)
+                print(f"RANDOM LINE: {random_line}")
+                print(" ")
+
+                #Asks user for their guess
+                user_guess = input("Please enter your poem choice: ")
+                print(" ")
+
+                #Comapares the user's guess to the answer. NOTE: replaces .txt due to it being in the LIST name for the file
+                if user_guess == random_poem.replace('.txt', ''):
+                    print("You entered the correct poem, congrats!")
+                    print(" ")
+                else:
+                    print(f"Sorry, you entered the wrong poem! The correct poem was: '{random_poem.replace('.txt', '')}'")
+                    print(" ")
+        elif user_input == '2':
+            user_selection = input("Please enter the poems you wish to study seprated by a comma (no spaces between each comma): ").split(',')
+            print(" ")
+
+            while True:
+                #Selects a random poem from the user from the LIST
+                random_user_poem = random.choice(user_selection)
+                random_user_poem_text = open(random_user_poem + ".txt", encoding="utf8").read().splitlines()
+
+                #Selects a random line from the poem
+                random_line = random.choice(random_user_poem_text)
+                print(f"RANDOM LINE: {random_line}")
+                print(" ")
+
+                #Asks user for their guess
+                user_guess = input("Please enter your poem choice: ")
+                print(" ")
+
+                #Comapares the user's guess to the answer. NOTE: replaces .txt due to it being in the LIST name for the file
+                if user_guess == random_user_poem.replace('.txt', ''):
+                    print("You entered the correct poem, congrats!")
+                    print(" ")
+                else:
+                    print(f"Sorry, you entered the wrong poem! The correct poem was: '{random_user_poem.replace('.txt', '')}'")
+                    print(" ")
+        elif user_input == '3':
+            input("I will display a random poem, try to enter the correct author name! Press enter when you're ready, close the program when you're done.")
+            print(" ")
+
+            while True:
+                #Selects a random poem from the LIST
+                random_poem = random.choice(POEMS)
+
+                #Gets the author
+                author = AUTHORS[POEMS.index(random_poem)]
+                print(f"RANDOM POEM: {random_poem.replace('.txt', '')}")
+                print(" ")
+
+                #Asks user for their guess
+                user_guess = input("Please enter your author choice: ")
+                print(" ")
+
+                #Comapares the user's guess to the answer. NOTE: replaces .txt due to it being in the LIST name for the file
+                if user_guess == author:
+                    print("You entered the correct author, congrats!")
+                    print(" ")
+                else:
+                    print(f"Sorry, you entered the wrong author! The correct author was: '{author}'")
+                    print(" ")
+        elif user_input == '4':
+            user_selection = input("Please enter the poems you wish to study seprated by a comma (no spaces between each comma):").split(',')
+            print(" ")
+
+            while True:
+                #Selects a random poem from the LIST
+                random_user_poem = random.choice(user_selection)
+
+                #Gets the author
+                author = AUTHORS[POEMS.index(random_user_poem + ".txt")]
+                print(f"RANDOM POEM: {random_user_poem.replace('.txt', '')}")
+                print(" ")
+
+                #Asks user for their guess
+                user_guess = input("Please enter your author choice: ")
+                print(" ")
+
+                #Comapares the user's guess to the answer. NOTE: replaces .txt due to it being in the LIST name for the file
+                if user_guess == author:
+                    print("You entered the correct author, congrats!")
+                    print(" ")
+                else:
+                    print(f"Sorry, you entered the wrong author! The correct author was: '{author}'")
+                    print(" ")
+        else:
+            print("You entered an incorrect choice! Try again!")
+            poem()
+    except Exception as e:
+        error = input("Oh-no! An error has occured, make sure you are entering the correct titles that match the file name. For debugging enter 'bug' to see the error, or press 'enter'/any input to restart the program.")
+        if error == 'bug':
+            print(f"ERROR:{e} ")
+        else:
+            poem()
+
+        
+
+
+
+
+
+
+if __name__ == "__main__":
+    poem()
