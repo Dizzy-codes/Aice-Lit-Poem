@@ -1,2 +1,12 @@
-# Aice-Lit-Poem
-Program to help with the EOC exam
+# Aice-Lit-Poem-Program
+### About
+This program will help to quiz yourself for the upcoming Aice-Lit exam!
+
+### Features
+This program currently has the following features: you can randomize lines of all the poems randomly or of your choosing, and randomize the poem title of all the poems or of your choosing.
+
+### Install
+To install click the 'Code' button and download the zip folder; unzip the folder and go to the 'SOURCE' folder. Within the 'SOURCE' open the 'dist' folder, click on 'poem.exe'. If it's not running properly you may have to whitelist the folder from your anti-virus.
+
+### Misc
+The program has instructions to follow, if you find any problems or mistakes please contact my email at 'mcbackflipsss@gmail.com'. This program was written by Michael Garcia! :D
